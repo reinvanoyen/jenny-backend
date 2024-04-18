@@ -23,6 +23,8 @@ class RegisterHandler extends BaseHandler
         $randomWord = Word::inRandomOrder()->first();
         $randomWordValue = ($randomWord ? $randomWord->word : 'krentenbaard');
 
+        return $this->respondToSlack(count($segments). ' – ' . $word);
+
         // Check if it's one word first
         if (count($segments) > 1) {
             return $this->respondToSlack('Eén woord, stukske '.$randomWordValue.'!');
