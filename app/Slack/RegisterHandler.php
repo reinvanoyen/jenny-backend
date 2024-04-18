@@ -17,10 +17,11 @@ class RegisterHandler extends BaseHandler
 
     public function handle(Request $request): Response
     {
-        return $this->respondToSlack('Ok');
 
         $word = strtolower(substr($request->text, strlen('viezerik')));
         $segments = explode($word, ' ');
+
+        return $this->respondToSlack($word);
 
         $randomWord = Word::inRandomOrder()->limit(1)->get();
         $randomWordValue = ($randomWord ? $randomWord->word : 'krentenbaard');
