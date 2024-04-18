@@ -17,10 +17,30 @@ class RandomHandler extends BaseHandler
 
     public function handle(Request $request): Response
     {
-        $randomWord = Word::inRandomOrder()->first();
-        $randomWordValue = ($randomWord ? $randomWord->word : 'krentenbaard');
+        $number = trim(strtolower(substr($request->text, strlen('vuilaard'))));
+        $numbersMap = [
+            'geef er mij twee' => 2,
+            'geef er mij drie' => 3,
+            'geef er mij vier' => 4,
+            'geef er mij vijf' => 5,
+            'geef er mij zes' => 6,
+            'geef er mij zeven' => 7,
+            'geef er mij acht' => 8,
+            'geef er mij negen' => 9,
+            'geef er mij tien' => 10,
+        ];
+        $limit = $numbersMap[$number] ?? 1;
+        $words = Word::inRandomOrder()->limit($limit)->get();
 
-        return $this->respondToSlack($randomWordValue . ' (reting: '.$randomWord->rating.' vieze punten)')
+        $output = [
+            'Ge zijt zelf nen vuilaard! Hierzie:'."\n",
+        ];
+
+        foreach ($words as $index => $word) {
+            $output[] = ($index + 1) . '. '.$word->word.' (reting: '.$word->rating.')';
+        }
+
+        return $this->respondToSlack(join("\n", $output))
             ->displayResponseToEveryoneOnChannel();
     }
 }
