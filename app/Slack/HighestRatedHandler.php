@@ -35,7 +35,7 @@ class HighestRatedHandler extends BaseHandler
         $output = [];
 
         foreach ($words as $index => $word) {
-            $output[] = ($index + 1) . '. '.$word->word.' (reting: '.$word->rating.')';
+            $output[] = '* '.($index + 1) . '. *'.$word->word.'* (reting: '.$word->rating.')';
         }
 
         return $this->respondToSlack(join("\n", $output))

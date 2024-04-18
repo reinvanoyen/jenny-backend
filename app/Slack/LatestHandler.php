@@ -35,7 +35,7 @@ class LatestHandler extends BaseHandler
         $output = [];
 
         foreach ($words as $index => $word) {
-            $output[] = $word->created_at->format('F j Y H:i') . ' - '.$word->word.' (reting: '.$word->rating.')';
+            $output[] = '* '.$word->created_at->format('j F Y H:i') . ' - *'.$word->word.'* (reting: '.$word->rating.')';
         }
 
         return $this->respondToSlack(join("\n", $output))
