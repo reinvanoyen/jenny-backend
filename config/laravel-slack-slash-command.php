@@ -34,6 +34,7 @@ return [
         \App\Slack\RegisterHandler::class,
         \App\Slack\RandomHandler::class,
         \App\Slack\StatsHandler::class,
+        \App\Slack\AllHandler::class,
 
         //this handler will display instructions on how to use the various commands.
         Spatie\SlashCommand\Handlers\Help::class,

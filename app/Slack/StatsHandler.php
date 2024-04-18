@@ -10,6 +10,10 @@ use Spatie\SlashCommand\Handlers\BaseHandler;
 
 class StatsHandler extends BaseHandler
 {
+    protected $signature = '* de vuilste';
+
+    protected $description = 'Toont een lijstje van de allervieste woorden';
+
     public function canHandle(Request $request): bool
     {
         return Str::startsWith($request->text, 'de vuilste');
