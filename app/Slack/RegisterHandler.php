@@ -25,15 +25,15 @@ class RegisterHandler extends BaseHandler
         $randomWord = Word::inRandomOrder()->first();
         $randomWordValue = ($randomWord ? $randomWord->word : 'krentenbaard');
 
-        return $this->respondToSlack($randomWordValue);
-
         // Check if it's one word first
         if (count($segments) > 1) {
             return $this->respondToSlack('Eén woord, stukske '.$randomWordValue.'!');
         }
 
+        return $this->respondToSlack('OK...');
+
         // Check if it already exists
-        $wordModel = Word::where('word', $word)->get();
+        $wordModel = Word::where('word', $word)->first();
 
         if ($wordModel) {
             $wordModel->rating = $wordModel->rating + 1;
