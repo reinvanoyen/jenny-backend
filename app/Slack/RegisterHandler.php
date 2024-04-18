@@ -17,7 +17,7 @@ class RegisterHandler extends BaseHandler
 
     public function handle(Request $request): Response
     {
-        $word = strtolower(substr(trim($request->text), strlen('viezerik')));
+        $word = trim(strtolower(substr($request->text, strlen('viezerik'))));
         $segments = explode(' ', $word);
 
         $randomWord = Word::inRandomOrder()->first();
