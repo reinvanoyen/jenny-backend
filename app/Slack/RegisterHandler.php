@@ -21,10 +21,11 @@ class RegisterHandler extends BaseHandler
         $word = strtolower(substr($request->text, strlen('viezerik')));
         $segments = explode($word, ' ');
 
-        return $this->respondToSlack($word);
 
-        $randomWord = Word::inRandomOrder()->limit(1)->get();
+        $randomWord = Word::inRandomOrder()->first();
         $randomWordValue = ($randomWord ? $randomWord->word : 'krentenbaard');
+
+        return $this->respondToSlack($randomWordValue);
 
         // Check if it's one word first
         if (count($segments) > 1) {
