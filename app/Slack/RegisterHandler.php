@@ -3,6 +3,7 @@
 namespace App\Slack;
 
 use App\Models\Word;
+use Illuminate\Support\Str;
 use Spatie\SlashCommand\Request;
 use Spatie\SlashCommand\Response;
 use Spatie\SlashCommand\Handlers\BaseHandler;
@@ -11,7 +12,7 @@ class RegisterHandler extends BaseHandler
 {
     public function canHandle(Request $request): bool
     {
-        return starts_with($request->text, 'viezerik');
+        return Str::startsWith($request->text, 'viezerik');
     }
 
     public function handle(Request $request): Response
