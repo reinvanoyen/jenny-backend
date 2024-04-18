@@ -20,7 +20,6 @@ class RegisterHandler extends BaseHandler
         $word = strtolower(substr($request->text, strlen('viezerik')));
         $segments = explode($word, ' ');
 
-
         $randomWord = Word::inRandomOrder()->first();
         $randomWordValue = ($randomWord ? $randomWord->word : 'krentenbaard');
 
@@ -29,7 +28,7 @@ class RegisterHandler extends BaseHandler
             return $this->respondToSlack('Eén woord, stukske '.$randomWordValue.'!');
         }
 
-        return $this->respondToSlack(count($segments));
+        return $this->respondToSlack(count($segments).' - '.$word);
 
         // Check if it already exists
         $wordModel = Word::where('word', $word)->first();
