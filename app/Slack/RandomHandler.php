@@ -20,7 +20,7 @@ class RandomHandler extends BaseHandler
         $randomWord = Word::inRandomOrder()->first();
         $randomWordValue = ($randomWord ? $randomWord->word : 'krentenbaard');
 
-        return $this->respondToSlack($randomWordValue . ' (Reting: '.$randomWord->rating.' vieze punten)')
+        return $this->respondToSlack($randomWordValue . ' (reting: '.$randomWord->rating.' vieze punten)')
             ->displayResponseToEveryoneOnChannel();
     }
 }
