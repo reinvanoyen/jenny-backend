@@ -33,7 +33,8 @@ return [
         //add your own handlers here
         \App\Slack\RegisterHandler::class,
         \App\Slack\RandomHandler::class,
-        \App\Slack\StatsHandler::class,
+        \App\Slack\HighestRatedHandler::class,
+        \App\Slack\LatestHandler::class,
         \App\Slack\HelpHandler::class,
 
         \App\Slack\AllHandler::class,

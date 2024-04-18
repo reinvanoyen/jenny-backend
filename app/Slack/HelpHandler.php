@@ -24,6 +24,7 @@ class HelpHandler extends BaseHandler
             'Komaaaan zeg bedorven stukske '.$randomWordValue.', moet ik nu altijd uw handje vasthouden?!'."\n",
             'Om een vatsig woord toe te voegen: `/vetbot vies [woord]`',
             'Om de goorste woorden op te vragen: `/vetbot de vuilste`',
+            'Om de laatste woorden op te vragen: `/vetbot de laatste`',
             'Om een willekeurig vies woord naar uw hoofd gesmeten te krijgen: `/vetbot vuilaard`',
             'En als ge echt achterlijk zijt, om deze boodschap te tonen: `/vetbot help` of `/vetbot help mij dan toch ik ben dom`',
         ];
