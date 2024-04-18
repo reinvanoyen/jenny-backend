@@ -10,10 +10,6 @@ use Spatie\SlashCommand\Handlers\BaseHandler;
 
 class RandomHandler extends BaseHandler
 {
-    protected $signature = '* vuilaard';
-
-    protected $description = 'Geeft je een willekeurig vies vuil woord';
-
     public function canHandle(Request $request): bool
     {
         return Str::startsWith($request->text, 'vuilaard');

@@ -10,10 +10,6 @@ use Spatie\SlashCommand\Handlers\BaseHandler;
 
 class RegisterHandler extends BaseHandler
 {
-    protected $signature = '* vies {woord: jouw vieze vuile woord}';
-
-    protected $description = 'Voeg een vies vuil woord toe!';
-
     public function canHandle(Request $request): bool
     {
         return Str::startsWith($request->text, 'vies');

@@ -8,10 +8,6 @@ use Spatie\SlashCommand\Handlers\BaseHandler;
 
 class AllHandler extends BaseHandler
 {
-    protected $signature = '*';
-
-    protected $description = 'Vertel mij eens waarover dit gaat?';
-
     public function canHandle(Request $request): bool
     {
         return true;

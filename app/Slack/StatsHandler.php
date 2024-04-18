@@ -10,10 +10,6 @@ use Spatie\SlashCommand\Handlers\BaseHandler;
 
 class StatsHandler extends BaseHandler
 {
-    protected $signature = '* de vuilste';
-
-    protected $description = 'Toont een lijstje van de allervieste woorden';
-
     public function canHandle(Request $request): bool
     {
         return Str::startsWith($request->text, 'de vuilste');
@@ -21,7 +17,20 @@ class StatsHandler extends BaseHandler
 
     public function handle(Request $request): Response
     {
-        $words = Word::orderBy('rating', 'desc')->limit(5)->get();
+        $number = trim(strtolower(substr($request->text, strlen('de vuilste'))));
+        $numbersMap = [
+            'twee' => 2,
+            'drie' => 3,
+            'vier' => 4,
+            'vijf' => 5,
+            'zes' => 6,
+            'zeven' => 7,
+            'acht' => 8,
+            'negen' => 9,
+            'tien' => 10,
+        ];
+        $limit = $numbersMap[$number] ?? 5;
+        $words = Word::orderBy('rating', 'desc')->limit($limit)->get();
 
         $output = [];
 
