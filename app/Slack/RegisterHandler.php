@@ -17,7 +17,6 @@ class RegisterHandler extends BaseHandler
 
     public function handle(Request $request): Response
     {
-
         $word = strtolower(substr($request->text, strlen('viezerik')));
         $segments = explode($word, ' ');
 
@@ -30,7 +29,7 @@ class RegisterHandler extends BaseHandler
             return $this->respondToSlack('Eén woord, stukske '.$randomWordValue.'!');
         }
 
-        return $this->respondToSlack('OK...');
+        return $this->respondToSlack(count($segments));
 
         // Check if it already exists
         $wordModel = Word::where('word', $word)->first();
