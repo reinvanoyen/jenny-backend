@@ -37,7 +37,7 @@ class RandomHandler extends BaseHandler
         ];
 
         foreach ($words as $index => $word) {
-            $output[] = ($index + 1) . '. '.$word->word.' (reting: '.$word->rating.')';
+            $output[] = '*'.$word->word.'* (reting: '.$word->rating.')';
         }
 
         return $this->respondToSlack(join("\n", $output))
