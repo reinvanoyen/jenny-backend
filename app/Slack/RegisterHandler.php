@@ -11,12 +11,12 @@ class RegisterHandler extends BaseHandler
 {
     public function canHandle(Request $request): bool
     {
-        return $request->command === 'viezerik';
+        return starts_with($request->text, 'viezerik');
     }
 
     public function handle(Request $request): Response
     {
-        $word = strtolower($request->text);
+        $word = strtolower(substr($request->text, strlen('viezerik')));
         $segments = explode($word, ' ');
 
         $randomWord = Word::inRandomOrder()->limit(1)->get();
