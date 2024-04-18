@@ -12,12 +12,12 @@ class RegisterHandler extends BaseHandler
 {
     public function canHandle(Request $request): bool
     {
-        return Str::startsWith($request->text, 'viezerik');
+        return Str::startsWith($request->text, 'vies');
     }
 
     public function handle(Request $request): Response
     {
-        $word = trim(strtolower(substr($request->text, strlen('viezerik'))));
+        $word = trim(strtolower(substr($request->text, strlen('vies'))));
         $segments = explode(' ', $word);
 
         $randomWord = Word::inRandomOrder()->first();
@@ -25,7 +25,8 @@ class RegisterHandler extends BaseHandler
 
         // Check if it's one word first
         if (count($segments) > 1) {
-            return $this->respondToSlack('Eén woord, stukske '.$randomWordValue.'!');
+            return $this->respondToSlack('Eén woord, stukske '.$randomWordValue.'! Zo moeilijk kan da nu toch ni zijn?!')
+                ->displayResponseToEveryoneOnChannel();
         }
 
         // Check if it already exists
@@ -35,7 +36,8 @@ class RegisterHandler extends BaseHandler
             $wordModel->rating = $wordModel->rating + 1;
             $wordModel->save();
 
-            return $this->respondToSlack('We hadden "'.$word.'" al. Beetje bij de pinken blijven he, mislukten '.$randomWordValue.'! Kheb het dan maar een extra puntje gegeven, wa moet ik anders doen?!');
+            return $this->respondToSlack('We hadden "'.$word.'" al. Beetje bij de pinken blijven he, mislukten '.$randomWordValue.'! Kheb het dan maar een extra puntje gegeven, wa moet ik anders doen?!')
+                ->displayResponseToEveryoneOnChannel();
         }
 
         // Create the word
@@ -44,6 +46,7 @@ class RegisterHandler extends BaseHandler
         $wordModel->rating = 1;
         $wordModel->save();
 
-        return $this->respondToSlack($word. ' ofwa? Ieeuw. Me wa zijt ge eigenlijk bezig? Maar allee, tis goe, kheb het opgeslaan in mijn '.$randomWordValue.'..euh ik bedoel database.');
+        return $this->respondToSlack(ucfirst($word). ' ofwa? Ieeuw. Vies. Me wa zijt ge eigenlijk bezig? Maar allee, tis goe, kheb het opgeslaan in mijn '.$randomWordValue.'..euh ik bedoel database.')
+            ->displayResponseToEveryoneOnChannel();
     }
 }
