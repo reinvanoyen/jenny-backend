@@ -53,7 +53,7 @@ class RegisterHandler extends BaseHandler
     private function randomSuccessReply(string $word, string $randomWord)
     {
         $replies = [
-            ucfirst($word).' ofwa? Ieeuw. Vies. Me wa zijt ge eigenlijk bezig? Maar allee, tis goe, kheb het opgeslaan in mijn '.$randomWord.'..euh ik bedoel database.',
+            ucfirst($word).' ofwa? Iiieeewww. Vies. Me wa zijt ge eigenlijk bezig? Maar allee, tis goe, kheb het opgeslaan in mijn '.$randomWord.'..euh ik bedoel database.',
             'Amai, goeike ze. Past goed bij '.$randomWord.'!',
             'Vunzig ventje. Of vrouwtje, weet ik veel. Hoe bedenkt ge zelf iets zo gortig als een '.$word.'?',
             'Bweikes, kben da ooit eens tegengekomen in de wc\'s van de charla. Maar oké, tzit in mijn database, ge kunt op mij rekenen.',
