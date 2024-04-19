@@ -36,7 +36,7 @@ class RegisterHandler extends BaseHandler
             $wordModel->rating = $wordModel->rating + 1;
             $wordModel->save();
 
-            return $this->respondToSlack('We hadden "'.$word.'" al. Beetje bij de pinken blijven he, mislukten '.$randomWordValue.'! Kheb het dan maar een extra puntje gegeven, wa moet ik anders doen?!')
+            return $this->respondToSlack('We hadden "'.$word.'" al. Beetje bij de pinken blijven he, mislukten '.$randomWordValue.'! Kheb het dan maar een extra puntje gegeven, wa moet ik anders doen?! (reting: '.$wordModel->rating.')')
                 ->displayResponseToEveryoneOnChannel();
         }
 
