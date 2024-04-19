@@ -35,6 +35,7 @@ return [
         \App\Slack\RandomHandler::class,
         \App\Slack\HighestRatedHandler::class,
         \App\Slack\LatestHandler::class,
+        \App\Slack\DeleteHandler::class,
         \App\Slack\HelpHandler::class,
 
         \App\Slack\AllHandler::class,
