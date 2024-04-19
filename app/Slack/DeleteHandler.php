@@ -39,7 +39,7 @@ class DeleteHandler extends BaseHandler
                 ->displayResponseToEveryoneOnChannel();
         }
 
-        return $this->respondToSlack('Tzat niet eens in den database, omhooggevallen stukske '.$randomWord.'!')
+        return $this->respondToSlack('Tzat niet eens in den database, omhooggevallen stukske '.$randomWordValue.'!')
             ->displayResponseToEveryoneOnChannel();
     }
 }
