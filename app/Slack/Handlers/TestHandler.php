@@ -25,7 +25,7 @@ class TestHandler extends BaseHandler
             ['name' => $userName]
         );
 
-        return $this->respondToSlack($author->userName . ' – ' . $author->slack_id)
+        return $this->respondToSlack($author->name . ' – ' . $author->slack_id)
             ->displayResponseToEveryoneOnChannel();
     }
 }
