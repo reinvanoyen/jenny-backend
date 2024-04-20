@@ -3,6 +3,7 @@
 namespace App\Slack\Handlers;
 
 use App\Models\Word;
+use App\Slack\WordList;
 use Illuminate\Support\Str;
 use Spatie\SlashCommand\Handlers\BaseHandler;
 use Spatie\SlashCommand\Request;
@@ -38,15 +39,8 @@ class ListRandomHandler extends BaseHandler
         $limit = $numbersMap[$number] ?? 1;
         $words = Word::inRandomOrder()->limit($limit)->get();
 
-        $output = [
-            'Ge zijt zelf nen vuilaard! Hierzie:'."\n",
-        ];
-
-        foreach ($words as $index => $word) {
-            $output[] = '* *'.$word->word.'* (reting: '.$word->rating.')';
-        }
-
-        return $this->respondToSlack(join("\n", $output))
+        $wordList = new WordList($words);
+        return $this->respondToSlack('Ge zijt zelf nen vuilaard! Hierzie:'."\n".$wordList->output())
             ->displayResponseToEveryoneOnChannel();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Cmf\Meta;
 
 use App\Models\Word;
+use ReinVanOyen\Cmf\Components\BelongsToField;
 use ReinVanOyen\Cmf\Components\TextField;
 use ReinVanOyen\Cmf\Components\TextView;
 use ReinVanOyen\Cmf\Meta;
@@ -85,6 +86,7 @@ class WordMeta extends Meta
     {
         return [
             TextField::make('word')->validate(['required',]),
+            BelongsToField::make('author')->nullable(),
         ];
     }
 }

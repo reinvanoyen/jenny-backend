@@ -3,6 +3,7 @@
 namespace App\Slack\Handlers;
 
 use App\Models\Word;
+use App\Slack\WordList;
 use Illuminate\Support\Str;
 use Spatie\SlashCommand\Handlers\BaseHandler;
 use Spatie\SlashCommand\Request;
@@ -37,13 +38,9 @@ class ListLatestHandler extends BaseHandler
         $limit = $numbersMap[$number] ?? 5;
         $words = Word::orderBy('created_at', 'desc')->limit($limit)->get();
 
-        $output = [];
+        $wordList = new WordList($words);
 
-        foreach ($words as $index => $word) {
-            $output[] = '* '.$word->created_at->format('j F Y H:i') . ' - *'.$word->word.'* (reting: '.$word->rating.')';
-        }
-
-        return $this->respondToSlack(join("\n", $output))
+        return $this->respondToSlack($wordList->output())
                 ->displayResponseToEveryoneOnChannel();
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Slack\Handlers;
 
-use App\Models\Author;
 use Illuminate\Support\Str;
 use Spatie\SlashCommand\Handlers\BaseHandler;
 use Spatie\SlashCommand\Request;
