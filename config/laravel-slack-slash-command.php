@@ -32,6 +32,7 @@ return [
     'handlers' => [
         //add your own handlers here
         \App\Slack\Handlers\RegisterHandler::class,
+        \App\Slack\Handlers\ViewHandler::class,
         \App\Slack\Handlers\UsernameHandler::class,
         \App\Slack\Handlers\ListRandomHandler::class,
         \App\Slack\Handlers\ListHighestRatedHandler::class,
