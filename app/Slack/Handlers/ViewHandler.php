@@ -33,8 +33,9 @@ class ViewHandler extends BaseHandler
         $wordModel = Word::where('word', $word)->first();
 
         if ($wordModel) {
-            return $this->respondToSlack(Replier::reply(Reply::TYPE_DOWNVOTED))
+            return $this->respondToSlack('')
                 ->withAttachment(Attachment::create()
+                    ->setFooter('Reting: '.$wordModel->rating)
                     ->setTitle($wordModel->word)
                     ->setColor('#4e4f30')
                     ->setAuthorName($wordModel->author ? $wordModel->author->name : '')
