@@ -14,12 +14,12 @@ class DownvoteHandler extends BaseHandler
 {
     public function canHandle(Request $request): bool
     {
-        return in_array($request->channelId, config('app.allowed_slack_channel_ids')) && Str::startsWith($request->text, 'puntje minder voor');
+        return in_array($request->channelId, config('app.allowed_slack_channel_ids')) && Str::startsWith($request->text, 'puntje aftrekken');
     }
 
     public function handle(Request $request): Response
     {
-        $word = trim(strtolower(substr($request->text, strlen('puntje minder voor'))));
+        $word = trim(strtolower(substr($request->text, strlen('puntje aftrekken'))));
         $segments = explode(' ', $word);
 
         // Check if it's one word first
