@@ -4,7 +4,7 @@ namespace App\Slack\Handlers;
 
 use App\Models\Reply;
 use App\Models\Word;
-use App\Slack\Replier;
+use App\Slack\Facades\Replier;
 use Illuminate\Support\Str;
 use Spatie\SlashCommand\Handlers\BaseHandler;
 use Spatie\SlashCommand\Request;
@@ -12,15 +12,6 @@ use Spatie\SlashCommand\Response;
 
 class DeleteHandler extends BaseHandler
 {
-    private Replier $replier;
-
-    public function __construct(Request $request, Replier $replier)
-    {
-        $this->replier = $replier;
-
-        parent::__construct($request);
-    }
-
     public function canHandle(Request $request): bool
     {
         return in_array($request->channelId, config('app.allowed_slack_channel_ids')) && Str::startsWith($request->text, 'weg met');
@@ -46,7 +37,7 @@ class DeleteHandler extends BaseHandler
         if ($wordModel) {
             $wordModel->delete();
 
-            return $this->respondToSlack($this->replier->reply(Reply::TYPE_DELETED))
+            return $this->respondToSlack(Replier::reply(Reply::TYPE_DELETED))
                 ->displayResponseToEveryoneOnChannel();
         }
 
