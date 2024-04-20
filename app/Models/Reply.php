@@ -18,4 +18,6 @@ class Reply extends Model
     const TYPE_WEEKLY = 4;
     const TYPE_FRIDAY = 5;
     const TYPE_RANDOM = 6;
+    const TYPE_VOTED = 7;
+    const TYPE_DOWNVOTED = 8;
 }

@@ -19,9 +19,6 @@ class HelpHandler extends BaseHandler
 
     public function handle(Request $request): Response
     {
-        $randomWord = Word::inRandomOrder()->first();
-        $randomWordValue = ($randomWord ? $randomWord->word : 'krentenbaard');
-
         $output = [
             Replier::reply(Reply::TYPE_HELP)."\n",
             '* Om een vatsig woord toe te voegen: `/vetbot vies [woord]`',

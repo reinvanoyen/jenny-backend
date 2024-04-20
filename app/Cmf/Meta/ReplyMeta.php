@@ -67,6 +67,8 @@ class ReplyMeta extends Meta
                 Reply::TYPE_WEEKLY => 'Wekelijks',
                 Reply::TYPE_FRIDAY => 'Vrijdag',
                 Reply::TYPE_RANDOM => 'Willekeurig',
+                Reply::TYPE_VOTED => 'Stem+',
+                Reply::TYPE_DOWNVOTED => 'Stem-',
             ]),
         ];
     }
@@ -85,6 +87,8 @@ class ReplyMeta extends Meta
                 Reply::TYPE_WEEKLY => 'Wekelijks',
                 Reply::TYPE_FRIDAY => 'Vrijdag',
                 Reply::TYPE_RANDOM => 'Willekeurig',
+                Reply::TYPE_VOTED => 'Stem+',
+                Reply::TYPE_DOWNVOTED => 'Stem-',
             ]),
             TextField::make('text')->validate(['required',]),
         ];
