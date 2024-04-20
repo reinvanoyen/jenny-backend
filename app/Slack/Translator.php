@@ -2,12 +2,18 @@
 
 namespace App\Slack;
 
+use App\Models\Word;
+
 class Translator
 {
     public function translate(string $input): string
     {
-        $output = $input;
+        $word = Word::orderBy('created_at', 'desc')->first()->value('word');
 
-        return $output;
+        return str_replace([
+            '{word}',
+        ], [
+            $word
+        ], $input);
     }
 }
