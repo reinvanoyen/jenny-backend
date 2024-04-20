@@ -28,6 +28,11 @@ class ListHighestRatedHandler extends BaseHandler
             'acht' => 8,
             'negen' => 9,
             'tien' => 10,
+            'vijftien' => 15,
+            'twintig' => 20,
+            'dertig' => 30,
+            'veertig' => 40,
+            'vijftig' => 50,
         ];
         $limit = $numbersMap[$number] ?? 5;
         $words = Word::orderBy('rating', 'desc')->limit($limit)->get();

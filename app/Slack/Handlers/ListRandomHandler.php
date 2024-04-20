@@ -28,7 +28,13 @@ class ListRandomHandler extends BaseHandler
             'geef er mij acht' => 8,
             'geef er mij negen' => 9,
             'geef er mij tien' => 10,
+            'geef er mij vijftien' => 15,
+            'geef er mij twintig' => 20,
+            'geef er mij dertig' => 30,
+            'geef er mij veertig' => 40,
+            'geef er mij vijftig' => 50,
         ];
+
         $limit = $numbersMap[$number] ?? 1;
         $words = Word::inRandomOrder()->limit($limit)->get();
 
