@@ -11,12 +11,19 @@ class WordList
         $this->words = $words;
     }
 
-    public function output(): string
+    public function output($rank = true, $date = false, $rating = true, $author = true): string
     {
         $output = [];
 
         foreach ($this->words as $index => $word) {
-            $output[] = '* '.$word->created_at->format('j F Y H:i') . ' - *'.$word->word.'* (reting: '.$word->rating.')';
+            $row = [];
+            if ($rank) $row[] = $index.'.';
+            $row[] = '*'.$word->word.'*';
+            if ($date) $row[] = '(toegevoegd: '.$word->created_at->format('j F Y H:i').')';
+            if ($rating) $row[] = '(reting: '.$word->rating.')';
+            if ($author) $row[] = $word->author ?? '(door: '.$word->author->name.')';
+
+            $output[] = join(' ', $row);
         }
 
         return join("\n", $output);
