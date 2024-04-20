@@ -40,7 +40,7 @@ class ListLatestHandler extends BaseHandler
 
         $wordList = new WordList($words);
 
-        return $this->respondToSlack($wordList->output())
+        return $this->respondToSlack($wordList->output(false, true, false, true))
                 ->displayResponseToEveryoneOnChannel();
     }
 }
