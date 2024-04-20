@@ -2,7 +2,9 @@
 
 namespace App\Slack\Handlers;
 
+use App\Models\Reply;
 use App\Models\Word;
+use App\Slack\Facades\Replier;
 use Illuminate\Support\Str;
 use Spatie\SlashCommand\Handlers\BaseHandler;
 use Spatie\SlashCommand\Request;
@@ -21,7 +23,7 @@ class HelpHandler extends BaseHandler
         $randomWordValue = ($randomWord ? $randomWord->word : 'krentenbaard');
 
         $output = [
-            'Komaaaan zeg bedorven stukske '.$randomWordValue.', moet ik nu altijd uw handje vasthouden?!'."\n",
+            Replier::reply(Reply::TYPE_HELP)."\n",
             '* Om een vatsig woord toe te voegen: `/vetbot vies [woord]`',
             '* Om de goorste woorden op te vragen: `/vetbot de vuilste`',
             '* Om de laatste woorden op te vragen: `/vetbot de laatste`',

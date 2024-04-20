@@ -8,7 +8,7 @@ use Spatie\SlashCommand\Handlers\BaseHandler;
 use Spatie\SlashCommand\Request;
 use Spatie\SlashCommand\Response;
 
-class LatestHandler extends BaseHandler
+class ListLatestHandler extends BaseHandler
 {
     public function canHandle(Request $request): bool
     {

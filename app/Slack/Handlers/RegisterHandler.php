@@ -2,7 +2,9 @@
 
 namespace App\Slack\Handlers;
 
+use App\Models\Reply;
 use App\Models\Word;
+use App\Slack\Facades\Replier;
 use Illuminate\Support\Str;
 use Spatie\SlashCommand\Handlers\BaseHandler;
 use Spatie\SlashCommand\Request;
@@ -46,7 +48,7 @@ class RegisterHandler extends BaseHandler
         $wordModel->rating = 1;
         $wordModel->save();
 
-        return $this->respondToSlack($this->randomSuccessReply($word, $randomWordValue))
+        return $this->respondToSlack(Replier::reply(Reply::TYPE_ADDED))
             ->displayResponseToEveryoneOnChannel();
     }
 
