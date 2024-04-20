@@ -4,12 +4,9 @@ namespace App\Slack;
 
 class WordList
 {
-    /**
-     * @var array
-     */
-    private array $words;
+    private $words;
 
-    public function __construct(array $words)
+    public function __construct($words)
     {
         $this->words = $words;
     }
