@@ -19,7 +19,7 @@ class WordList
             $row = [];
 
             if ($rank) {
-                $row[] = $index.'.';
+                $row[] = ($index+1).'.';
             }
 
             $row[] = '*'.$word->word.'*';
