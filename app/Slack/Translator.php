@@ -8,7 +8,7 @@ class Translator
 {
     public function translate(string $input): string
     {
-        $word = Word::orderBy('created_at', 'desc')->first()->value('word');
+        $word = Word::orderBy('created_at', 'asc')->first()->value('word');
 
         return str_replace([
             '{word}',
