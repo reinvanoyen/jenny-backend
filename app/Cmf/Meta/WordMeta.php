@@ -87,6 +87,7 @@ class WordMeta extends Meta
         return [
             TextField::make('word')->validate(['required',]),
             BelongsToField::make('author')->nullable(),
+            TextField::make('text')->multiline(),
         ];
     }
 }
