@@ -10,4 +10,12 @@ class Word extends Model
     use HasFactory;
 
     protected $table = 'words';
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
+    }
 }

@@ -17,13 +17,7 @@ class TestHandler extends BaseHandler
 
     public function handle(Request $request): Response
     {
-        $userId = $request->userId;
-        $userName = $request->userName;
-
-        $author = Author::firstOrCreate(
-            ['slack_id' => $userId],
-            ['name' => $userName]
-        );
+        $author = \author($request->userId, $request->userName);
 
         return $this->respondToSlack($author->name . ' – ' . $author->slack_id)
             ->displayResponseToEveryoneOnChannel();

@@ -46,6 +46,7 @@ class RegisterHandler extends BaseHandler
         $wordModel = new Word();
         $wordModel->word = $word;
         $wordModel->rating = 1;
+        $wordModel->author()->associate(\author($request->userId, $request->userName));
         $wordModel->save();
 
         return $this->respondToSlack(Replier::reply(Reply::TYPE_ADDED))
