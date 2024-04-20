@@ -17,11 +17,24 @@ class WordList
 
         foreach ($this->words as $index => $word) {
             $row = [];
-            if ($rank) $row[] = $index.'.';
+
+            if ($rank) {
+                $row[] = $index.'.';
+            }
+
             $row[] = '*'.$word->word.'*';
-            if ($date) $row[] = '(toegevoegd: '.$word->created_at->format('j F Y H:i').')';
-            if ($rating) $row[] = '(reting: '.$word->rating.')';
-            if ($author) $row[] = $word->author ?? '(door: '.$word->author->name.')';
+
+            if ($date) {
+                $row[] = '(toegevoegd: '.$word->created_at->format('j F Y H:i').')';
+            }
+
+            if ($rating) {
+                $row[] = '(reting: '.$word->rating.')';
+            }
+
+            if ($author) {
+                $row[] = $word->author ? '(door: '.$word->author->name.')' : '';
+            }
 
             $output[] = join(' ', $row);
         }
