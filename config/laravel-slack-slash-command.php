@@ -36,6 +36,8 @@ return [
         \App\Slack\Handlers\ListHighestRatedHandler::class,
         \App\Slack\Handlers\ListLatestHandler::class,
         \App\Slack\Handlers\DeleteHandler::class,
+        \App\Slack\Handlers\VoteHandler::class,
+        \App\Slack\Handlers\DownvoteHandler::class,
         \App\Slack\Handlers\HelpHandler::class,
 
         \App\Slack\Handlers\AllHandler::class,
