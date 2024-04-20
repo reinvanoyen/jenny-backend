@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Cmf\Modules\AuthorModule;
 use App\Cmf\Modules\ReplyModule;
 use App\Cmf\Modules\WordModule;
 use ReinVanOyen\Cmf\CmfApplicationServiceProvider;
@@ -15,6 +16,7 @@ class CmfServiceProvider extends CmfApplicationServiceProvider
         return [
             WordModule::class,
             ReplyModule::class,
+            AuthorModule::class,
             UserModule::class,
             MediaLibraryModule::class,
         ];
