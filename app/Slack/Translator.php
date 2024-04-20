@@ -8,7 +8,7 @@ class Translator
 {
     public function translate(string $input): string
     {
-        $word = Word::latest()->first()->value('word');
+        $word = Word::latest()->value('word');
         $noun = Word::inRandomOrder()->first()->value('word');
         $verb = Word::inRandomOrder()->first()->value('word');
         $random = Word::inRandomOrder()->first()->value('word');

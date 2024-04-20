@@ -44,8 +44,6 @@ class RegisterHandler extends BaseHandler
 
         // Create the word
         $wordModel = new Word();
-        $wordModel->created_at = time();
-        $wordModel->updated_at = time();
         $wordModel->word = $word;
         $wordModel->rating = 1;
         $wordModel->save();
