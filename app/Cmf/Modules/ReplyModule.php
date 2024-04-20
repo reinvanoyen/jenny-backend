@@ -2,6 +2,7 @@
 
 namespace App\Cmf\Modules;
 
+use App\Cmf\Meta\ReplyMeta;
 use App\Cmf\Meta\WordMeta;
 use ReinVanOyen\Cmf\Action\Action;
 use ReinVanOyen\Cmf\Action\Delete;
@@ -12,14 +13,14 @@ use ReinVanOyen\Cmf\Components\Icon;
 use ReinVanOyen\Cmf\Module;
 use ReinVanOyen\Cmf\Components\Link;
 
-class WordModule extends Module
+class ReplyModule extends Module
 {
     /**
      * @return string
      */
     protected function title(): string
     {
-        return 'Vieze vuile woorden';
+        return 'Gore antwoorden';
     }
 
     /**
@@ -27,7 +28,7 @@ class WordModule extends Module
      */
     protected function icon()
     {
-        return 'star';
+        return 'emoji_objects';
     }
 
     /**
@@ -35,9 +36,9 @@ class WordModule extends Module
      */
     public function index(): Action
     {
-        return Index::make(WordMeta::class)
+        return Index::make(ReplyMeta::class)
             ->header([
-                Link::make('Nieuw vies vuil woord', 'create')
+                Link::make('Nieuw onsympathiek antwoord', 'create')
                     ->style('primary'),
             ])
             ->actions([
@@ -51,7 +52,7 @@ class WordModule extends Module
      */
     public function delete(): Action
     {
-        return Delete::make(WordMeta::class);
+        return Delete::make(ReplyMeta::class);
     }
 
     /**
@@ -59,7 +60,7 @@ class WordModule extends Module
      */
     public function create(): Action
     {
-        return Create::make(WordMeta::class);
+        return Create::make(ReplyMeta::class);
     }
 
     /**
@@ -67,6 +68,6 @@ class WordModule extends Module
      */
     public function edit(): Action
     {
-        return Edit::make(WordMeta::class);
+        return Edit::make(ReplyMeta::class);
     }
 }

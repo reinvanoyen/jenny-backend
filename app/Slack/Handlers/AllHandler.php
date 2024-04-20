@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Slack;
+namespace App\Slack\Handlers;
 
+use Spatie\SlashCommand\Handlers\BaseHandler;
 use Spatie\SlashCommand\Request;
 use Spatie\SlashCommand\Response;
-use Spatie\SlashCommand\Handlers\BaseHandler;
 
 class AllHandler extends BaseHandler
 {

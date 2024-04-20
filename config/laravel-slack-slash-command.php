@@ -31,14 +31,14 @@ return [
      */
     'handlers' => [
         //add your own handlers here
-        \App\Slack\RegisterHandler::class,
-        \App\Slack\RandomHandler::class,
-        \App\Slack\HighestRatedHandler::class,
-        \App\Slack\LatestHandler::class,
-        \App\Slack\DeleteHandler::class,
-        \App\Slack\HelpHandler::class,
+        \App\Slack\Handlers\RegisterHandler::class,
+        \App\Slack\Handlers\RandomHandler::class,
+        \App\Slack\Handlers\HighestRatedHandler::class,
+        \App\Slack\Handlers\LatestHandler::class,
+        \App\Slack\Handlers\DeleteHandler::class,
+        \App\Slack\Handlers\HelpHandler::class,
 
-        \App\Slack\AllHandler::class,
+        \App\Slack\Handlers\AllHandler::class,
 
         //this handler will respond with a `Could not handle command` message.
         Spatie\SlashCommand\Handlers\CatchAll::class,
