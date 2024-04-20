@@ -10,7 +10,7 @@ class AllHandler extends BaseHandler
 {
     public function canHandle(Request $request): bool
     {
-        return true;
+        return in_array($request->channelId, config('app.allowed_slack_channel_ids'));
     }
 
     public function handle(Request $request): Response

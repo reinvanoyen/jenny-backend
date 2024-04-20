@@ -5,6 +5,11 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
+    'allowed_slack_channel_ids' => [
+        'C06V02GA33M',
+        'C06UWRJ42M8',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

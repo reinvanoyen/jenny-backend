@@ -12,7 +12,7 @@ class LatestHandler extends BaseHandler
 {
     public function canHandle(Request $request): bool
     {
-        return Str::startsWith($request->text, 'de laatste');
+        return in_array($request->channelId, config('app.allowed_slack_channel_ids')) && Str::startsWith($request->text, 'de laatste');
     }
 
     public function handle(Request $request): Response
