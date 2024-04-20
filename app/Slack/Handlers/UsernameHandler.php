@@ -16,7 +16,7 @@ class UsernameHandler extends BaseHandler
 
     public function handle(Request $request): Response
     {
-        $word = trim(strtolower(substr($request->text, strlen('goeiendag ik ben'))));
+        $word = trim(substr($request->text, strlen('goeiendag ik ben')));
         $segments = explode(' ', $word);
 
         // Check if it's one word first
