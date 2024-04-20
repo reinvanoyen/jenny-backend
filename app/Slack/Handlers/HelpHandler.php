@@ -24,6 +24,7 @@ class HelpHandler extends BaseHandler
             '* Om een vatsig woord toe te voegen: `/vetbot vies [woord]`',
             '* Om een vettig staaltje taal te apprecieren: `/vetbot puntje voor [woord]`',
             '* Om een woord af te kraken: `/vetbot puntje aftrekken [woord]`',
+            '* Om u aan mij voor te stellen: `/vetbot goeiendag ik ben [naam]`',
             '* Om de goorste woorden op te vragen: `/vetbot de vuilste` of `/vetbot de vuilste dertig`',
             '* Om de laatste woorden op te vragen: `/vetbot de laatste` of `/vetbot de laatste zeven`',
             '* Als een woord te proper is kunt ge het zo verwijderen: `/vetbot weg met [woord]` (let op: weg is weg)',

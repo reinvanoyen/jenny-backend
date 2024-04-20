@@ -12,17 +12,20 @@ class Translator
         $noun = Word::inRandomOrder()->first()->word;
         $verb = Word::inRandomOrder()->first()->word;
         $random = Word::inRandomOrder()->first()->word;
+        $count = Word::count();
 
         return str_replace([
             '{word}',
             '{noun}',
             '{verb}',
             '{random}',
+            '{count}',
         ], [
             $word,
             $noun,
             $verb,
-            $random
+            $random,
+            $count,
         ], $input);
     }
 }
