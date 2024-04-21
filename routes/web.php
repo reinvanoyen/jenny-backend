@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) {
     \Illuminate\Support\Facades\Log::debug($request);
+
+    return response()->json([
+        'text' => 'Merci vadsigaardje!',
+    ]);
 });
 
 Route::get('/', function () {
