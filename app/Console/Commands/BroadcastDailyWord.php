@@ -56,7 +56,7 @@ class BroadcastDailyWord extends Command
                 'type' => 'section',
                 'text' => [
                     'type' => 'plain_text',
-                    'text' => $word->text,
+                    'text' => ($word->text ?: ''),
                 ]
             ]
         ]);
