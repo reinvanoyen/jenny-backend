@@ -13,8 +13,8 @@ class Translator
         $noun = Word::inRandomOrder()->first()->word;
         $verb = Word::inRandomOrder()->first()->word;
         $random = Word::inRandomOrder()->first()->word;
-        $randomUser = Author::inRandomOrder()->first()->name;
         $count = Word::count();
+        $randomUser = Author::inRandomOrder()->first()->name;
 
         return str_replace([
             '{word}',
