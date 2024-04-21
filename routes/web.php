@@ -28,9 +28,10 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
     }
 
     $response = \Illuminate\Support\Facades\Http::post($responseUrl, [
-        'text' => 'Merci vadsigaardje, uw stem is binnen! 🤢',
+        'text' => 'Merci vadsigaardje, uw stem voor "'.$wordModel->word.'" is binnen! 🤢',
         'replace_original' => 'true',
         'delete_original' => 'true',
+        'type' => 'in_channel',
     ]);
 
     return response()->json([
