@@ -16,7 +16,7 @@ class Translator
         $count = Word::count();
         $randomUser = Author::inRandomOrder()->first()->name;
 
-        return str_replace([
+        return ucfirst(str_replace([
             '{word}',
             '{noun}',
             '{verb}',
@@ -30,6 +30,6 @@ class Translator
             $random,
             $count,
             $randomUser,
-        ], $input);
+        ], $input));
     }
 }

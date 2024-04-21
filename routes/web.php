@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) {
+    \Illuminate\Support\Facades\Log::debug($request);
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
