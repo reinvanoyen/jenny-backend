@@ -16,10 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) {
     \Illuminate\Support\Facades\Log::debug($request);
 
-    return response()->json([
-        'replace_original' => "true",
+    $responseUrl = $request->input('response_url');
+
+    $response = \Illuminate\Support\Facades\Http::post($responseUrl, [
         'text' => 'Merci vadsigaardje!',
-        'type' => 'in_channel',
+        'replace_original' => 'true',
+    ]);
+
+    return response()->json([
+        'status' => 'ok',
     ]);
 });
 
