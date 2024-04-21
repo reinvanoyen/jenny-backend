@@ -42,7 +42,6 @@ class BroadcastDailyWord extends Command
                     'text' => $word->word.'!!!',
                 ]
             ],
-            /*
             [
                 'type' => 'section',
                 'text' => [
@@ -50,6 +49,7 @@ class BroadcastDailyWord extends Command
                     'text' => $word->word.' heeft een reting van '.$word->rating.($word->author ? ' en werd bedacht door viezerik '.$word->author->name : '').'.',
                 ],
             ],
+            /*
             [
                 'type' => 'divider',
             ],
