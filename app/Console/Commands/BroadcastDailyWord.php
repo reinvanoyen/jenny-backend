@@ -26,8 +26,7 @@ class BroadcastDailyWord extends Command
     public function handle()
     {
         $word = \App\Models\Word::inRandomOrder()->first();
-
-        \Spatie\SlackAlerts\Facades\SlackAlert::blocks([
+        $blocks = [
             [
                 'type' => 'section',
                 'text' => [
@@ -46,20 +45,24 @@ class BroadcastDailyWord extends Command
                 'type' => 'section',
                 'text' => [
                     'type' => 'plain_text',
-                    'text' => $word->word.' heeft een reting van '.$word->rating.($word->author ? ' en werd bedacht door viezerik '.$word->author->name : '').'.',
+                    'text' => 'Dit prachtige woord heeft een reting van '.$word->rating.($word->author ? ' en werd bedacht door taalvirtuoos '.$word->author->name : '').'.',
                 ],
             ],
             [
                 'type' => 'divider',
             ],
-            /*
-            [
+        ];
+
+        if ($word->text) {
+            $blocks[] = [
                 'type' => 'section',
                 'text' => [
                     'type' => 'plain_text',
-                    'text' => ($word->text ?: ''),
-                ]
-            ]*/
-        ]);
+                    'text' => $word->text,
+                ],
+            ];
+        }
+
+        \Spatie\SlackAlerts\Facades\SlackAlert::blocks($blocks);
     }
 }
