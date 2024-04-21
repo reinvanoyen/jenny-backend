@@ -53,10 +53,6 @@ class InitiatePoll extends Command
             ],
             [
                 'type' => 'section',
-                'text' => [
-                    'type' => 'plain_text',
-                    'text' => 'Tijd om te stemmen viezerikjes! Kies voor jouw favorietje!',
-                ],
                 'accessory' => [
                     'type' => 'radio_buttons',
                     'action_id' => 'poll',
