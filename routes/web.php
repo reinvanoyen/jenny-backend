@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) {
     \Illuminate\Support\Facades\Log::debug($request);
 
-    $payload = json_decode($request->input('payload'));
+    $payload = json_decode($request->input('payload'), true);
     $responseUrl = $payload['response_url'];
 
     $response = \Illuminate\Support\Facades\Http::post($responseUrl, [
