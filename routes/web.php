@@ -19,6 +19,13 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
     $responseUrl = $payload['response_url'];
     $votedWord = $payload['actions'][0]['selected_option']['value'] ?? null;
 
+    $userId = $payload['user']['id'] ?? null;
+    $userName = $payload['user']['username'] ?? null;
+
+    if ($userId && $userName) {
+        $author = author($userId, $userName);
+    }
+
     \Illuminate\Support\Facades\Log::debug($payload);
     \Illuminate\Support\Facades\Log::debug($votedWord);
 
@@ -35,7 +42,11 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
             'type' => 'in_channel',
         ]);
 
-        \Spatie\SlackAlerts\Facades\SlackAlert::message('Jaa!! Een stem voor "'.$wordModel->word.'"!');
+        if (isset($author) && $author) {
+            \Spatie\SlackAlerts\Facades\SlackAlert::message('Viezerik '.$author->name.' stemde voor "'.$wordModel->word.'"!');
+        } else {
+            \Spatie\SlackAlerts\Facades\SlackAlert::message('Jaa!! Een stem voor "'.$wordModel->word.'"!');
+        }
     }
 
     return response()->json([
