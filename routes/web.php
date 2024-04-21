@@ -18,7 +18,7 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
 
     $payload = json_decode($request->input('payload'), true);
     $responseUrl = $payload['response_url'];
-    $votedWord = $payload['actions']['selected_option']['wondvocht'] ?? null;
+    $votedWord = $payload['actions']['selected_option']['value'] ?? null;
 
     $wordModel = \App\Models\Word::where('word', $votedWord)->first();
 
@@ -28,7 +28,7 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
     }
 
     $response = \Illuminate\Support\Facades\Http::post($responseUrl, [
-        'text' => 'Merci vadsigaardje!',
+        'text' => 'Merci vadsigaardje, uw stem is binnen! 🤢',
         'replace_original' => 'true',
         'delete_original' => 'true',
     ]);
