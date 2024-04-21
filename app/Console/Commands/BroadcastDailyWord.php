@@ -35,7 +35,6 @@ class BroadcastDailyWord extends Command
                     'text' => \App\Slack\Facades\Replier::reply(\App\Models\Reply::TYPE_WOTD),
                 ]
             ],
-            /*
             [
                 'type' => 'header',
                 'text' => [
@@ -43,6 +42,7 @@ class BroadcastDailyWord extends Command
                     'text' => $word->word.'!!!',
                 ]
             ],
+            /*
             [
                 'type' => 'section',
                 'text' => [
