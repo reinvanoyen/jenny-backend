@@ -17,6 +17,7 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
     \Illuminate\Support\Facades\Log::debug($request);
 
     return response()->json([
+        'replace_original' => "true",
         'text' => 'Merci vadsigaardje!',
         'type' => 'in_channel',
     ]);
