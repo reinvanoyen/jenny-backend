@@ -34,6 +34,8 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
             'delete_original' => 'true',
             'type' => 'in_channel',
         ]);
+
+        \Spatie\SlackAlerts\Facades\SlackAlert::message('Jaa!! Een stem voor "'.$wordModel->word.'"!');
     }
 
     return response()->json([
