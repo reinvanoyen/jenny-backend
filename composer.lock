@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c49343ddf6388ddd1ad8ba5d15192456",
+    "content-hash": "eea97530fdfdef630c1cad93ee166c13",
     "packages": [
         {
             "name": "brick/math",
@@ -3532,6 +3532,88 @@
                 }
             ],
             "time": "2024-01-11T08:43:00+00:00"
+        },
+        {
+            "name": "spatie/laravel-slack-alerts",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-slack-alerts.git",
+                "reference": "ac626d35bd1b0023bc19b65dafe3c3895efaeb1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-slack-alerts/zipball/ac626d35bd1b0023bc19b65dafe3c3895efaeb1d",
+                "reference": "ac626d35bd1b0023bc19b65dafe3c3895efaeb1d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^8.73|^9.0|^10.0|^11.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^5.10|^6.0|^8.0",
+                "orchestra/testbench": "^6.22|^7.0|^8.0|^9.0",
+                "pestphp/pest": "^1.21|^2.0",
+                "pestphp/pest-plugin-laravel": "^1.1|^2.0",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5|^10.5",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\SlackAlerts\\SlackAlertsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Slack": "SlackAlert"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\SlackAlerts\\": "src",
+                    "Spatie\\SlackAlerts\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Niels Vanpachtenbeke",
+                    "email": "niels@spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Send a message to Slack",
+            "homepage": "https://github.com/spatie/laravel-slack-alerts",
+            "keywords": [
+                "laravel",
+                "laravel-slack-alerts",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-slack-alerts/issues",
+                "source": "https://github.com/spatie/laravel-slack-alerts/tree/1.3.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-02-09T09:36:31+00:00"
         },
         {
             "name": "spatie/laravel-slack-slash-command",

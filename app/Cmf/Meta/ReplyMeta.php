@@ -62,6 +62,7 @@ class ReplyMeta extends Meta
             EnumView::make('type', [
                 Reply::TYPE_ADDED => 'Toevoeging',
                 Reply::TYPE_DELETED => 'Verwijdering',
+                Reply::TYPE_WOTD => 'Woord v/d dag',
                 Reply::TYPE_HELP => 'Help',
                 Reply::TYPE_DAILY => 'Dagelijks',
                 Reply::TYPE_WEEKLY => 'Wekelijks',
@@ -82,6 +83,7 @@ class ReplyMeta extends Meta
             EnumField::make('type', [
                 Reply::TYPE_ADDED => 'Toevoeging',
                 Reply::TYPE_DELETED => 'Verwijdering',
+                Reply::TYPE_WOTD => 'Woord v/d dag',
                 Reply::TYPE_HELP => 'Help',
                 Reply::TYPE_DAILY => 'Dagelijks',
                 Reply::TYPE_WEEKLY => 'Wekelijks',

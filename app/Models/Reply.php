@@ -20,4 +20,5 @@ class Reply extends Model
     const TYPE_RANDOM = 6;
     const TYPE_VOTED = 7;
     const TYPE_DOWNVOTED = 8;
+    const TYPE_WOTD = 9;
 }
