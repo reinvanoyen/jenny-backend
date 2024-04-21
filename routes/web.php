@@ -17,7 +17,7 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
 
     $payload = json_decode($request->input('payload'), true);
     $responseUrl = $payload['response_url'];
-    $votedWord = $payload['actions']['selected_option']['value'] ?? null;
+    $votedWord = $payload['actions'][0]['selected_option']['value'] ?? null;
 
     \Illuminate\Support\Facades\Log::debug($payload);
     \Illuminate\Support\Facades\Log::debug($votedWord);
