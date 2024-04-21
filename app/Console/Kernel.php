@@ -12,7 +12,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('app:broadcast-daily-word')->everyFourMinutes();
+        $schedule->command('app:broadcast-daily-word')->dailyAt('11:45');
+        $schedule->command('app:broadcast-random-message')->everyMinute();
     }
 
     /**
