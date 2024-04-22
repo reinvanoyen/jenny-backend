@@ -40,12 +40,18 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
 
         $client = \JoliCode\Slack\ClientFactory::create(config('app.slack_bot_token'));
 
+        \Illuminate\Support\Facades\Http::post($responseUrl, [
+            'text' => 'Merci vadsigaardje, uw stem voor "'.$wordModel->word.'" is binnen! 🤢',
+            'replace_original' => true,
+        ]);
+
+        /*
         $client->chatUpdate([
             'as_user' => true,
             'ts' => $ts,
             'channel' => $channelId,
             'text' => 'Merci vadsigaardje, uw stem voor "'.$wordModel->word.'" is binnen! 🤢',
-        ]);
+        ]);*/
 
         if (isset($author) && $author) {
             \Spatie\SlackAlerts\Facades\SlackAlert::message('Viezerik '.$author->name.' stemde voor "'.$wordModel->word.'"!');
