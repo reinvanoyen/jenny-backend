@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('app:initiate-poll')->dailyAt('12:10')->weekdays();
         $schedule->command('app:broadcast-daily-word')->dailyAt('09:45');
-        $schedule->command('app:broadcast-random-message')->everyTwoHours(17)->between('08:00', '18:00')->weekdays();
+        $schedule->command('app:broadcast-random-message')->hourly()->between('08:00', '18:00')->weekdays();
         $schedule->command('app:broadcast-friday-message')->at('15:55')->fridays();
     }
 
