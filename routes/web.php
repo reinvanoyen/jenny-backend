@@ -42,7 +42,6 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
 
         $client->chatUpdate([
             'as_user' => true,
-            'user' => $userId,
             'ts' => $ts,
             'channel' => $channelId,
             'text' => 'Merci vadsigaardje, uw stem voor "'.$wordModel->word.'" is binnen! 🤢',

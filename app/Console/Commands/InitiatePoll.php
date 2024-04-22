@@ -71,6 +71,14 @@ class InitiatePoll extends Command
             ],
         ];
 
-        \Spatie\SlackAlerts\Facades\SlackAlert::blocks($blocks);
+        $client = JoliCode\Slack\ClientFactory::create(config('app.slack_bot_token'));
+
+        $client->chatPostMessage([
+            'as_user' => true,
+            'channel' => config('app.slack_channel_id'),
+            'blocks' => $blocks,
+        ]);
+
+        //\Spatie\SlackAlerts\Facades\SlackAlert::blocks($blocks);
     }
 }
