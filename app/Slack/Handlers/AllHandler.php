@@ -10,12 +10,14 @@ class AllHandler extends BaseHandler
 {
     public function canHandle(Request $request): bool
     {
-        return in_array($request->channelId, config('app.allowed_slack_channel_ids'));
+        return true;
     }
 
     public function handle(Request $request): Response
     {
-        return $this->respondToSlack('Welkom bij de Vetpotkast, waar we geen doekjes \'winden\' om vuile woorden. Tussen vetpot en pint, trekken we de beerput open en duiken we dieper in de betekenis, oorsprong en gedachten van de dark side van onze vocabulaire. We schuwen geen enkel woord, hoe welriekend het ook mag zijn. Graaf mee met ons in de smeuïge wereld van ons ziek brein en haal het donkerste, goorste, vuilste woord uit de kast. Hoe vettiger, hoe prettiger.')
+        $author = author($request->userId, $request->userName);
+
+        return $this->respondToSlack('Nee '.$author->name.', voor u mag ik een mysterie blijven...')
             ->displayResponseToEveryoneOnChannel();
     }
 }

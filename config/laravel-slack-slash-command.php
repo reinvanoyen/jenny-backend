@@ -44,10 +44,7 @@ return [
         \App\Slack\Handlers\SilentModeOffHandler::class,
         \App\Slack\Handlers\SilentModeOnHandler::class,
         \App\Slack\Handlers\TestHandler::class,
-
+        \App\Slack\Handlers\InfoHandler::class,
         \App\Slack\Handlers\AllHandler::class,
-
-        //this handler will respond with a `Could not handle command` message.
-        Spatie\SlashCommand\Handlers\CatchAll::class,
     ],
 ];
