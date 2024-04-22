@@ -37,7 +37,6 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
 
         \Illuminate\Support\Facades\Http::post($responseUrl, [
             'text' => 'Merci vadsigaardje, uw stem voor "'.$wordModel->word.'" is binnen! 🤢',
-            'replace_original' => 'true',
         ]);
 
         if (isset($author) && $author) {
