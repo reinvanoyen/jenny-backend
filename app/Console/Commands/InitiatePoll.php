@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Author;
 use Illuminate\Console\Command;
 
 class InitiatePoll extends Command
@@ -73,11 +74,14 @@ class InitiatePoll extends Command
 
         $client = \JoliCode\Slack\ClientFactory::create(config('app.slack_bot_token'));
 
-        $client->chatPostMessage([
-            'as_user' => true,
-            'channel' => config('app.slack_channel_id'),
-            'blocks' => json_encode($blocks),
-        ]);
+        foreach (Author::all() as $author) {
+            $client->chatPostEphemeral([
+                'user' => $author->slack_id,
+                'as_user' => true,
+                'channel' => config('app.slack_channel_id'),
+                'blocks' => json_encode($blocks),
+            ]);
+        }
 
         //\Spatie\SlackAlerts\Facades\SlackAlert::blocks($blocks);
     }
