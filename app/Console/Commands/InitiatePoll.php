@@ -76,7 +76,7 @@ class InitiatePoll extends Command
         $client->chatPostMessage([
             'as_user' => true,
             'channel' => config('app.slack_channel_id'),
-            'blocks' => $blocks,
+            'blocks' => json_encode($blocks),
         ]);
 
         //\Spatie\SlackAlerts\Facades\SlackAlert::blocks($blocks);
