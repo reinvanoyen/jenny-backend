@@ -32,6 +32,8 @@ class HelpHandler extends BaseHandler
             '* Om de laatste woorden op te vragen: `/vetbot de laatste` of `/vetbot de laatste zeven`',
             '* Als een woord te proper is kunt ge het zo verwijderen: `/vetbot weg met [woord]` (let op: weg is weg)',
             '* Om een willekeurig vies woord naar uw hoofd gesmeten te krijgen: `/vetbot vuilaard`  of `/vetbot vuilaard geef er mij tien`',
+            '* Als ge vind dat ik wat moet dimmen: `/vetbot bek houden`',
+            '* Als ik weer m\'n bek mag opentrekken: `/vetbot ge zijt zo stil der is toch niets?`',
             '* En als ge echt achterlijk zijt, om deze boodschap te tonen: `/vetbot help` of `/vetbot help mij dan toch ik ben dom`',
         ];
 

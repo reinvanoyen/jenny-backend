@@ -11,7 +11,7 @@ class SilentModeOffHandler extends BaseHandler
 {
     public function canHandle(Request $request): bool
     {
-        return in_array($request->channelId, config('app.allowed_slack_channel_ids')) && Str::startsWith($request->text, 'ge zijt zo stil');
+        return in_array($request->channelId, config('app.allowed_slack_channel_ids')) && Str::startsWith($request->text, 'ge zijt zo stil der is toch niets?');
     }
 
     public function handle(Request $request): Response
