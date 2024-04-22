@@ -69,6 +69,12 @@ class BroadcastDailyWord extends Command
             ];
         }
 
-        \Spatie\SlackAlerts\Facades\SlackAlert::blocks($blocks);
+        $client = \JoliCode\Slack\ClientFactory::create(config('app.slack_bot_token'));
+
+        $client->chatPostMessage([
+            'channel' => config('app.slack_channel_id'),
+            'as_user' => true,
+            'blocks' => json_encode($blocks),
+        ]);
     }
 }

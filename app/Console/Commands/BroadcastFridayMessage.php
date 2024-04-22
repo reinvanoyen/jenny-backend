@@ -33,6 +33,12 @@ class BroadcastFridayMessage extends Command
             return;
         }
 
-        \Spatie\SlackAlerts\Facades\SlackAlert::message(Replier::reply(Reply::TYPE_FRIDAY));
+        $client = \JoliCode\Slack\ClientFactory::create(config('app.slack_bot_token'));
+
+        $client->chatPostMessage([
+            'channel' => config('app.slack_channel_id'),
+            'as_user' => true,
+            'text' => Replier::reply(Reply::TYPE_FRIDAY),
+        ]);
     }
 }
