@@ -5,6 +5,8 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
+    'slack_bot_token' => env('SLACK_BOT_TOKEN'),
+
     'allowed_slack_channel_ids' => [
         'C06V02GA33M',
         'C06UWRJ42M8',
