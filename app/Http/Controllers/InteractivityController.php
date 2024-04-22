@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reply;
+use App\Slack\Facades\Replier;
 use \Illuminate\Http\Request;
 
 class InteractivityController extends Controller
@@ -32,10 +34,14 @@ class InteractivityController extends Controller
                 'replace_original' => true,
             ]);
 
+            $client = \JoliCode\Slack\ClientFactory::create(config('app.slack_bot_token'));
+
             if (isset($author) && $author) {
-                \Spatie\SlackAlerts\Facades\SlackAlert::message('Viezerik '.$author->name.' stemde voor "'.$wordModel->word.'"!');
-            } else {
-                \Spatie\SlackAlerts\Facades\SlackAlert::message('Jaa!! Een stem voor "'.$wordModel->word.'"!');
+                $client->chatPostMessage([
+                    'channel' => $channelId,
+                    'as_user' => true,
+                    'text' => 'Viezerik '.$author->name.' stemde voor "'.$wordModel->word.'"!',
+                ]);
             }
         }
 
