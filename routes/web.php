@@ -38,7 +38,7 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
         $wordModel->rating = $wordModel->rating + 1;
         $wordModel->save();
 
-        $client = JoliCode\Slack\ClientFactory::create(config('app.slack_bot_token'));
+        $client = \JoliCode\Slack\ClientFactory::create(config('app.slack_bot_token'));
 
         $client->chatUpdate([
             'as_user' => true,

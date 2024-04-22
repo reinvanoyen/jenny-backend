@@ -71,7 +71,7 @@ class InitiatePoll extends Command
             ],
         ];
 
-        $client = JoliCode\Slack\ClientFactory::create(config('app.slack_bot_token'));
+        $client = \JoliCode\Slack\ClientFactory::create(config('app.slack_bot_token'));
 
         $client->chatPostMessage([
             'as_user' => true,
