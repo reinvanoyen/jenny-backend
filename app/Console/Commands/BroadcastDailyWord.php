@@ -25,6 +25,12 @@ class BroadcastDailyWord extends Command
      */
     public function handle()
     {
+        $silent = (bool) config('settings.silent');
+
+        if ($silent) {
+            return;
+        }
+
         $word = \App\Models\Word::inRandomOrder()->first();
         $blocks = [
             [

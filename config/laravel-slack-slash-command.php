@@ -41,6 +41,8 @@ return [
         \App\Slack\Handlers\VoteHandler::class,
         \App\Slack\Handlers\DownvoteHandler::class,
         \App\Slack\Handlers\HelpHandler::class,
+        \App\Slack\Handlers\SilentModeOffHandler::class,
+        \App\Slack\Handlers\SilentModeOnHandler::class,
         \App\Slack\Handlers\TestHandler::class,
 
         \App\Slack\Handlers\AllHandler::class,

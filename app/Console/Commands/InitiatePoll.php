@@ -25,6 +25,12 @@ class InitiatePoll extends Command
      */
     public function handle()
     {
+        $silent = (bool) config('settings.silent');
+
+        if ($silent) {
+            return;
+        }
+
         $words = \App\Models\Word::inRandomOrder()->limit(5)->get();
 
         $options = [];

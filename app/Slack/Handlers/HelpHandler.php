@@ -19,6 +19,8 @@ class HelpHandler extends BaseHandler
 
     public function handle(Request $request): Response
     {
+        $silent = (bool) config('settings.silent');
+
         $output = [
             Replier::reply(Reply::TYPE_HELP)."\n",
             '* Om een vatsig woord toe te voegen: `/vetbot vies [woord]`',
@@ -32,6 +34,8 @@ class HelpHandler extends BaseHandler
             '* Om een willekeurig vies woord naar uw hoofd gesmeten te krijgen: `/vetbot vuilaard`  of `/vetbot vuilaard geef er mij tien`',
             '* En als ge echt achterlijk zijt, om deze boodschap te tonen: `/vetbot help` of `/vetbot help mij dan toch ik ben dom`',
         ];
+
+        $output[] = "\n\n".($silent ? 'Op de moment ben ik niet van plan ulder te storen tijdens het werk' : 'Op de moment ben ik vuilgebekt en kan ik jullie ieder moment storen!');
 
         return $this->respondToSlack(join("\n", $output))
             ->displayResponseToEveryoneOnChannel();

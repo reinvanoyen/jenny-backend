@@ -27,6 +27,12 @@ class BroadcastFridayMessage extends Command
      */
     public function handle()
     {
+        $silent = (bool) config('settings.silent');
+
+        if ($silent) {
+            return;
+        }
+
         \Spatie\SlackAlerts\Facades\SlackAlert::message(Replier::reply(Reply::TYPE_FRIDAY));
     }
 }
