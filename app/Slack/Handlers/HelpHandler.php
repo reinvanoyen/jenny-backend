@@ -23,7 +23,7 @@ class HelpHandler extends BaseHandler
 
         $output = [
             Replier::reply(Reply::TYPE_HELP)."\n",
-            '* Om een vatsig woord toe te voegen: `/vetbot vies [woord]`',
+            '* Om een vadsig woord toe te voegen: `/vetbot vies [woord]`',
             '* Om een vurt woord te bekijken: `/vetbot toon [woord]`',
             '* Om een vettig staaltje taal te apprecieren: `/vetbot puntje voor [woord]`',
             '* Om een woord af te kraken: `/vetbot puntje aftrekken [woord]`',

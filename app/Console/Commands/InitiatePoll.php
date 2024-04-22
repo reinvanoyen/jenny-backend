@@ -82,7 +82,5 @@ class InitiatePoll extends Command
                 'blocks' => json_encode($blocks),
             ]);
         }
-
-        //\Spatie\SlackAlerts\Facades\SlackAlert::blocks($blocks);
     }
 }

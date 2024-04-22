@@ -7,7 +7,7 @@ return [
 
     'slack_bot_token' => env('SLACK_BOT_TOKEN'),
 
-    'slack_channel_id' => 'C06V02GA33M',
+    'slack_channel_id' => 'C06UWRJ42M8',
 
     'allowed_slack_channel_ids' => [
         'C06V02GA33M',
