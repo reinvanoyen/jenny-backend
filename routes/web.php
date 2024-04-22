@@ -35,10 +35,11 @@ Route::post('slack/interactivity', function (\Illuminate\Http\Request $request) 
         $wordModel->rating = $wordModel->rating + 1;
         $wordModel->save();
 
-        /*
         \Illuminate\Support\Facades\Http::post($responseUrl, [
             'text' => 'Merci vadsigaardje, uw stem voor "'.$wordModel->word.'" is binnen! 🤢',
-        ]);*/
+            'response_type' => 'in_channel',
+            'replace_original' => false,
+        ]);
 
         if (isset($author) && $author) {
             \Spatie\SlackAlerts\Facades\SlackAlert::message('Viezerik '.$author->name.' stemde voor "'.$wordModel->word.'"!');
