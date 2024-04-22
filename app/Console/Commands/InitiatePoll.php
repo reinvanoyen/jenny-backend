@@ -76,9 +76,9 @@ class InitiatePoll extends Command
 
         foreach (Author::all() as $author) {
             $client->chatPostEphemeral([
+                'channel' => config('app.slack_channel_id'),
                 'user' => $author->slack_id,
                 'as_user' => true,
-                'channel' => config('app.slack_channel_id'),
                 'blocks' => json_encode($blocks),
             ]);
         }
