@@ -43,6 +43,7 @@ return [
         \App\Slack\Handlers\HelpHandler::class,
         \App\Slack\Handlers\SilentModeOffHandler::class,
         \App\Slack\Handlers\SilentModeOnHandler::class,
+        \App\Slack\Handlers\ReplyHandler::class,
         \App\Slack\Handlers\TestHandler::class,
         \App\Slack\Handlers\InfoHandler::class,
         \App\Slack\Handlers\AllHandler::class,
