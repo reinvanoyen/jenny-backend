@@ -17,6 +17,6 @@ Route::post('slack/interactivity', [\App\Http\Controllers\InteractivityControlle
 
 Route::get('/', function () {
     return view('words.list', [
-        'words' => \App\Models\Word::orderBy('rating', 'asc')->get(),
+        'words' => \App\Models\Word::orderBy('rating', 'desc')->get(),
     ]);
 });
