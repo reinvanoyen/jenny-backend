@@ -16,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('slack/interactivity', [\App\Http\Controllers\InteractivityController::class, 'receive']);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('words.list', [
+        'words' => \App\Models\Word::orderBy('rating', 'asc')->get(),
+    ]);
 });
