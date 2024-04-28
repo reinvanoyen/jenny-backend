@@ -1,10 +1,10 @@
 const wordle = (WORDS) => {
 
-    const NUMBER_OF_GUESSES = 8;
-    let guessesRemaining = NUMBER_OF_GUESSES;
     let currentGuess = [];
     let nextLetter = 0;
     let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)].word;
+    const NUMBER_OF_GUESSES = rightGuessString.length;
+    let guessesRemaining = NUMBER_OF_GUESSES;
 
     function initBoard() {
         let board = document.getElementById("game-board");
