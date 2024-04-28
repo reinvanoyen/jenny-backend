@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wordle</title>
+    @vite(['resources/js/app.js'])
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        #game-board {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .letter-box {
+            border: 2px solid gray;
+            border-radius: 3px;
+            margin: 2px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            height: 3rem;
+            width: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        .filled-box {
+            border: 2px solid black;
+        }
+
+        .letter-row {
+            display: flex;
+        }
+
+        #keyboard-cont {
+            margin: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #keyboard-cont div {
+            display: flex;
+        }
+
+        .second-row {
+            margin: 0.5rem 0;
+        }
+
+        .keyboard-button {
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.5rem;
+            margin: 0 2px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="antialiased" style="background-color: #412f25;">
+<div id="game-board">
+
+</div>
+
+<div id="keyboard-cont">
+    <div class="first-row">
+        <button class="keyboard-button">q</button>
+        <button class="keyboard-button">w</button>
+        <button class="keyboard-button">e</button>
+        <button class="keyboard-button">r</button>
+        <button class="keyboard-button">t</button>
+        <button class="keyboard-button">y</button>
+        <button class="keyboard-button">u</button>
+        <button class="keyboard-button">i</button>
+        <button class="keyboard-button">o</button>
+        <button class="keyboard-button">p</button>
+    </div>
+    <div class="second-row">
+        <button class="keyboard-button">a</button>
+        <button class="keyboard-button">s</button>
+        <button class="keyboard-button">d</button>
+        <button class="keyboard-button">f</button>
+        <button class="keyboard-button">g</button>
+        <button class="keyboard-button">h</button>
+        <button class="keyboard-button">j</button>
+        <button class="keyboard-button">k</button>
+        <button class="keyboard-button">l</button>
+    </div>
+    <div class="third-row">
+        <button class="keyboard-button">Del</button>
+        <button class="keyboard-button">z</button>
+        <button class="keyboard-button">x</button>
+        <button class="keyboard-button">c</button>
+        <button class="keyboard-button">v</button>
+        <button class="keyboard-button">b</button>
+        <button class="keyboard-button">n</button>
+        <button class="keyboard-button">m</button>
+        <button class="keyboard-button">Enter</button>
+    </div>
+</div>
+</body>
+</html>

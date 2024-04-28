@@ -20,3 +20,11 @@ Route::get('/', function () {
         'words' => \App\Models\Word::orderBy('rating', 'desc')->get(),
     ]);
 });
+
+Route::get('/wordle', function () {
+    return view('games.wordle');
+});
+
+Route::get('/api/words', function () {
+    return \App\Models\Word::all();
+});
