@@ -22,6 +22,13 @@ class HelpHandler extends BaseHandler
         $silent = (bool) config('settings.silent');
         $level = (int) config('settings.level', 1);
 
+        $wordCount = Word::count();
+
+        if ($wordCount === 273) {
+            return $this->respondToSlack('Taiciforp sejdraagisdav, teh etsliuv lateg si kjilruutan 96. Raam taw sla ej tad tiaardmo?')
+                ->displayResponseToEveryoneOnChannel();
+        }
+
         $output = [
             Replier::reply(Reply::TYPE_HELP)."\n",
             '* Om een vadsig woord toe te voegen: `/vetbot vies [woord]`',
