@@ -1,10 +1,4 @@
-const response = await fetch('api/words');
-
-const WORDS = await response.json();
-
-console.log(WORDS);
-
-const wordle = () => {
+const wordle = (WORDS) => {
 
     const NUMBER_OF_GUESSES = 8;
     let guessesRemaining = NUMBER_OF_GUESSES;
@@ -174,4 +168,23 @@ const wordle = () => {
     initBoard();
 };
 
-export default wordle;
+const initWordle = () => {
+    fetch('api/words')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(words => {
+
+            wordle(words);
+
+        })
+        .catch(error => {
+            // Handle errors here
+            console.error('There was a problem with the fetch operation:', error);
+        });
+};
+
+export default initWordle;

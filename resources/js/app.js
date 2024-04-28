@@ -1,3 +1,3 @@
-import wordle from "./wordle/wordle.js";
+import initWordle from "./wordle/wordle.js";
 
-wordle();
+initWordle();
