@@ -21,7 +21,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/wordle', function () {
+Route::get('/wurtle', function () {
     return view('games.wordle');
 });
 
