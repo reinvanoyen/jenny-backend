@@ -49,6 +49,20 @@ class RegisterHandler extends BaseHandler
         $wordModel->author()->associate(\author($request->userId, $request->userName));
         $wordModel->save();
 
+        // Word count
+        $wordCount = Word::count();
+        if ($wordCount === 200 && config('settings.level') < 2) {
+            setting('level', 2);
+            return $this->respondToSlack('JaAAAaAAAaAAAAAAAAAaaaaAAAAaaaAA!!!!! 200 woorden!')
+                ->displayResponseToEveryoneOnChannel();
+        }
+
+        if ($wordCount === 300 && config('settings.level') < 3) {
+            setting('level', 3);
+            return $this->respondToSlack('LEVEL 3 MODDERFOKKERS')
+                ->displayResponseToEveryoneOnChannel();
+        }
+
         return $this->respondToSlack(Replier::reply(Reply::TYPE_ADDED))
             ->displayResponseToEveryoneOnChannel();
     }

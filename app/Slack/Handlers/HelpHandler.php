@@ -20,6 +20,7 @@ class HelpHandler extends BaseHandler
     public function handle(Request $request): Response
     {
         $silent = (bool) config('settings.silent');
+        $level = (int) config('settings.level', 1);
 
         $output = [
             Replier::reply(Reply::TYPE_HELP)."\n",
@@ -39,6 +40,7 @@ class HelpHandler extends BaseHandler
         ];
 
         $output[] = "\n\n".($silent ? 'Op de moment ben ik niet van plan ulder te storen tijdens het werk' : 'Op de moment ben ik vuilgebekt en kan ik jullie ieder moment storen!');
+        $output[] = "\n\n".'Graad van vettigheid: '.$level;
 
         return $this->respondToSlack(join("\n", $output))
             ->displayResponseToEveryoneOnChannel();
