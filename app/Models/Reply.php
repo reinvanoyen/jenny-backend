@@ -22,4 +22,5 @@ class Reply extends Model
     const TYPE_DOWNVOTED = 8;
     const TYPE_WOTD = 9;
     const TYPE_ARG = 10;
+    const TYPE_COUNT = 11;
 }

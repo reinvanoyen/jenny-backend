@@ -70,6 +70,8 @@ class ReplyMeta extends Meta
                 Reply::TYPE_RANDOM => 'Willekeurig',
                 Reply::TYPE_VOTED => 'Stem+',
                 Reply::TYPE_DOWNVOTED => 'Stem-',
+                Reply::TYPE_ARG => 'ARG Hint',
+                Reply::TYPE_COUNT => 'Telling',
             ]),
         ];
     }
@@ -92,6 +94,7 @@ class ReplyMeta extends Meta
                 Reply::TYPE_VOTED => 'Stem+',
                 Reply::TYPE_DOWNVOTED => 'Stem-',
                 Reply::TYPE_ARG => 'ARG Hint',
+                Reply::TYPE_COUNT => 'Telling',
             ]),
             TextField::make('text')->validate(['required',]),
         ];
