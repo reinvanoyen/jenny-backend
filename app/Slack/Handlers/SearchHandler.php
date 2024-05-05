@@ -21,6 +21,11 @@ class SearchHandler extends BaseHandler
         $word = trim(strtolower(substr($request->text, strlen('zoek'))));
         $segments = explode(' ', $word);
 
+        if ($word === 'afkolven') {
+            return $this->respondToSlack('F@1Jom0dl ZaxKduUhoZkuW, F3g AfzNoeW NufAh Zo PxoNdeEfuR 96. D@uW Fuv Znu Ax Fuk FouUdkWi?')
+                ->displayResponseToEveryoneOnChannel();
+        }
+
         // Check if it's one word first
         if (count($segments) > 1) {
             return $this->respondToSlack('Eén woord! Zo moeilijk kan da nu toch ni zijn?!')

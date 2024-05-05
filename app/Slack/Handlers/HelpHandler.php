@@ -25,7 +25,7 @@ class HelpHandler extends BaseHandler
         $wordCount = Word::count();
 
         if ($wordCount === 273) {
-            return $this->respondToSlack('Taiciforp sejdraagisdav, teh etsliuv lateg si kjilruutan 96. Raam taw sla ej tad tiaardmo?')
+            return $this->respondToSlack('Zoek het OG woord en je zal vinden wat je zoekt.')
                 ->displayResponseToEveryoneOnChannel();
         }
 
