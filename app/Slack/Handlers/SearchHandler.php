@@ -18,7 +18,7 @@ class SearchHandler extends BaseHandler
 
     public function handle(Request $request): Response
     {
-        $word = trim(strtolower(substr($request->text, strlen('puntje aftrekken'))));
+        $word = trim(strtolower(substr($request->text, strlen('zoek'))));
         $segments = explode(' ', $word);
 
         // Check if it's one word first
