@@ -36,6 +36,8 @@ class HelpHandler extends BaseHandler
             '* Om een vettig staaltje taal te apprecieren: `/vetbot puntje voor [woord]`',
             '* Om een woord af te kraken: `/vetbot puntje aftrekken [woord]`',
             '* Om u aan mij voor te stellen: `/vetbot goeiendag ik ben [naam]`',
+            '* Om het aantal woorden te weten te komen: `/vetbot hoeeveel`',
+            '* Om te zoeken op een woord of een deel van een woord: `/vetbot zoek [zoekterm]`',
             '* Om de goorste woorden op te vragen: `/vetbot de vuilste` of `/vetbot de vuilste dertig`',
             '* Om de laatste woorden op te vragen: `/vetbot de laatste` of `/vetbot de laatste zeven`',
             '* Als een woord te proper is kunt ge het zo verwijderen: `/vetbot weg met [woord]` (let op: weg is weg)',
