@@ -34,6 +34,8 @@ return [
         \App\Slack\Handlers\RegisterHandler::class,
         \App\Slack\Handlers\ViewHandler::class,
         \App\Slack\Handlers\UsernameHandler::class,
+        \App\Slack\Handlers\SearchHandler::class,
+        \App\Slack\Handlers\CountHandler::class,
         \App\Slack\Handlers\ListRandomHandler::class,
         \App\Slack\Handlers\ListHighestRatedHandler::class,
         \App\Slack\Handlers\ListLatestHandler::class,
