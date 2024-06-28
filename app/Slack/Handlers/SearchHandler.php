@@ -21,8 +21,11 @@ class SearchHandler extends BaseHandler
         $word = trim(strtolower(substr($request->text, strlen('zoek'))));
         $segments = explode(' ', $word);
 
-        if ($word === 'afkolven') {
-            return $this->respondToSlack('F@1Jom0dl ZaxKduUhoZkuW, F3g AfzNoeW NufAh Zo PxoNdeEfuR 96. D@uW Fuv Znu Ax Fuk FouUdkWi?')
+        if ($word === 'afkolven' && ! config('settings.web_experience')) {
+
+            setting('web_experience', true);
+
+            return $this->respondToSlack('Deploying...')
                 ->displayResponseToEveryoneOnChannel();
         }
 
