@@ -31,24 +31,6 @@ return [
      */
     'handlers' => [
         //add your own handlers here
-        \App\Slack\Handlers\RegisterHandler::class,
-        \App\Slack\Handlers\ViewHandler::class,
-        \App\Slack\Handlers\UsernameHandler::class,
-        \App\Slack\Handlers\SearchHandler::class,
-        \App\Slack\Handlers\CountHandler::class,
-        \App\Slack\Handlers\ListRandomHandler::class,
-        \App\Slack\Handlers\ListHighestRatedHandler::class,
-        \App\Slack\Handlers\PunishHandler::class,
-        \App\Slack\Handlers\ListLatestHandler::class,
-        \App\Slack\Handlers\DeleteHandler::class,
-        \App\Slack\Handlers\VoteHandler::class,
-        \App\Slack\Handlers\DownvoteHandler::class,
-        \App\Slack\Handlers\HelpHandler::class,
-        \App\Slack\Handlers\SilentModeOffHandler::class,
-        \App\Slack\Handlers\SilentModeOnHandler::class,
-        \App\Slack\Handlers\ReplyHandler::class,
-        \App\Slack\Handlers\TestHandler::class,
-        \App\Slack\Handlers\InfoHandler::class,
         \App\Slack\Handlers\AllHandler::class,
     ],
 ];
