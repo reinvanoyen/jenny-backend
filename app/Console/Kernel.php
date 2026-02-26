@@ -12,11 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('app:initiate-poll')->dailyAt('10:10')->weekdays();
-        $schedule->command('app:broadcast-daily-word')->dailyAt('07:45')->weekdays();
-        $schedule->command('app:broadcast-random-message')->everyTwoHours()->between('06:00', '16:00')->weekdays();
-        $schedule->command('app:broadcast-friday-message')->at('13:55')->fridays();
-        $schedule->command('app:broadcast-arg-message')->at('13:55')->mondays();
+        //
     }
 
     /**

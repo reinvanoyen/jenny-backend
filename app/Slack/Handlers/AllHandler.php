@@ -15,9 +15,15 @@ class AllHandler extends BaseHandler
 
     public function handle(Request $request): Response
     {
-        $author = author($request->userId, $request->userName);
+        $client = \JoliCode\Slack\ClientFactory::create(config('app.slack_bot_token'));
 
-        return $this->respondToSlack('Nee '.$author->name.', voor u mag ik een mysterie blijven...')
+        $client->chatPostMessage([
+            'channel' => config('app.slack_channel_id'),
+            'as_user' => true,
+            'text' => $request->text,
+        ]);
+
+        return $this->respondToSlack('You told Jenny')
             ->displayResponseToEveryoneOnChannel();
     }
 }

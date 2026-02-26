@@ -7,11 +7,10 @@ return [
 
     'slack_bot_token' => env('SLACK_BOT_TOKEN'),
 
-    'slack_channel_id' => 'C06UWRJ42M8',
+    'slack_channel_id' => 'C0AH5PUH4KD',
 
     'allowed_slack_channel_ids' => [
-        'C06V02GA33M', // vetbot-test
-        'C06UWRJ42M8', // vetbot
+        'C0AH5PUH4KD', // jenny
     ],
 
     /*
