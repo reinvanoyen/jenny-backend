@@ -20,10 +20,9 @@ class AllHandler extends BaseHandler
         $client->chatPostMessage([
             'channel' => config('app.slack_channel_id'),
             'as_user' => true,
-            'text' => $request->text,
+            'text' => 'Iemand vertrouwde me het volgende toe: "'.$request->text.'"',
         ]);
 
-        return $this->respondToSlack('You told Jenny')
-            ->displayResponseToEveryoneOnChannel();
+        return $this->respondToSlack('You told Jenny');
     }
 }
